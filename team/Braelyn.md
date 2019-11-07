@@ -1,0 +1,1 @@
+I am comfortable with Java, Python, JavaScript, HTML, CSS, and C, in decreasing order. Outside of this course my primary experience with HTML and CSS comes from editing ebooks (.epub). Not much experience with databases. I can make digital art through vectors and am a novice in music production.
