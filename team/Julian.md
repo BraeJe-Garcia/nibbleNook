@@ -1,0 +1,1 @@
+Hi, I'm Julian. I've coded primarily in Java, JS, Python, and know basic HTML/CSS. I've done web development before in CS 320. Mildly experienced with PostgreSQL, and have a general understanding of database structuring. My zodiac is Aries, my favorite movie is Blade Runner, my favorite food is bean burritos, and islands are my favorite environment.
