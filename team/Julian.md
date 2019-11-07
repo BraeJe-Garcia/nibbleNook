@@ -1,0 +1,1 @@
+Hi, I'm Julian. I've coded primarily in Java, JS, Python, and know basic HTML/CSS. Did some web development in 320. Mildly experienced with PostgreSQL, and generally understand database structuring. Interested in a creative, unique, and fun project but have no ideas set in stone. Willing to get experimental! 
