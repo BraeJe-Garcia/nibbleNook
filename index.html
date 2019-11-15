@@ -4,5 +4,309 @@
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+
+<!--filters subnav-->
+  <form class="narrow-hidden filters" id="work-filters" action="/works" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;"/>
+  <h3 class="landmark heading">Filters</h3>
+  <fieldset><legend>Filter menu:</legend>
+    <dl>
+      <dt class="landmark">Submit</dt>
+      <dd class="submit actions"><input type="submit" name="commit" value="Sort and Filter"/></dd>
+      <dt class="sort">
+        <label for="work_search_sort_column">Sort by</label>
+      </dt>
+      <dd class="sort">
+        <select name="work_search[sort_column]" id="work_search_sort_column"><option value="authors_to_sort_on">Author</option>
+<option value="title_to_sort_on">Title</option>
+<option value="created_at">Date Posted</option>
+<option selected="selected" value="revised_at">Date Updated</option>
+<option value="word_count">Word Count</option>
+<option value="hits">Hits</option>
+<option value="kudos_count">Kudos</option>
+<option value="comments_count">Comments</option>
+<option value="bookmarks_count">Bookmarks</option></select>
+      </dd>
+
+        <dt class="include heading">
+          <h4 class="heading">
+            Preferences
+          </h4>
+        </dt>
+        <dd class="include tags group">
+          <dl>
+               <dt id="toggle_include_rating_tags" class="filter-toggle rating tags">
+                <span class="landmark">Diet </span>
+              </dt>
+              <dd id="include_rating_tags" class="expandable rating tags">
+                      <label for="include_work_search_rating_ids_10">
+                          <input type="checkbox" name="include_work_search[rating_ids][]" id="include_work_search_rating_ids_10" value="10"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Vegetarian</span>
+</label>                    
+                      <label for="include_work_search_rating_ids_11">
+                          <input type="checkbox" name="include_work_search[rating_ids][]" id="include_work_search_rating_ids_11" value="11"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Vegan</span>
+</label>                   
+                      <label for="include_work_search_rating_ids_12">
+                          <input type="checkbox" name="include_work_search[rating_ids][]" id="include_work_search_rating_ids_12" value="12"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Local</span>
+</label>                    
+                      <label for="include_work_search_rating_ids_13">
+                          <input type="checkbox" name="include_work_search[rating_ids][]" id="include_work_search_rating_ids_13" value="13"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Whole Grain</span>
+</label>                    
+                      <label for="include_work_search_rating_ids_13">
+                          <input type="checkbox" name="include_work_search[rating_ids][]" id="include_work_search_rating_ids_13" value="13"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Halal</span>
+</label>                    
+					  <label for="include_work_search_rating_ids_13">
+                          <input type="checkbox" name="include_work_search[rating_ids][]" id="include_work_search_rating_ids_13" value="13"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Antibiotic Free</span>
+</label>                    
+					  <label for="include_work_search_rating_ids_13">
+                          <input type="checkbox" name="include_work_search[rating_ids][]" id="include_work_search_rating_ids_13" value="13"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Sustainable</span>
+</label>         
+              </dd>
+              <dt id="toggle_include_archive_warning_tags" class="filter-toggle warning tags">
+                <span class="landmark">Allergies </span>
+              </dt>
+              <dd id="include_fandom_tags" class="expandable fandom tags">
+                <ul>
+                    <li>
+                      <label for="include_work_search_fandom_ids_264607">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_264607" value="264607"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Milk</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_845781">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_845781" value="845781"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Peanuts</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_2529660">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_2529660" value="2529660"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Shellfish</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_65">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_65" value="65"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Eggs</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_13999">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_13999" value="13999"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Gluten</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_3720260">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_3720260" value="3720260"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Tree Nuts</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_3045">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_3045" value="3045"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Fish</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_5093">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_5093" value="5093"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Soy</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_13184">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_13184" value="13184"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Corn</span>
+</label>                    </li>
+                    <li>
+                      <label for="include_work_search_fandom_ids_20555">
+                          <input type="checkbox" name="include_work_search[fandom_ids][]" id="include_work_search_fandom_ids_20555" value="20555"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Sesame</span>
+</label>                    </li>
+                </ul>
+              </dd>
+
+            <dt class="autocomplete search">
+              <label for="work_search_other_tag_names">Other ingredients to avoid</label>
+            </dt>
+            <dd class="autocomplete search">
+              <input class="autocomplete" autocomplete_method="/autocomplete/tag" autocomplete_hint_text="Start typing for suggestions!" autocomplete_no_results_text="(No suggestions found)" autocomplete_min_chars="1" autocomplete_searching_text="Searching..." type="text" name="work_search[other_tag_names]" id="work_search_other_tag_names"/>
+            </dd>
+          </dl>
+        </dd>
+        <dt class="exclude heading">
+          <h4 class="heading">
+            Nutrition
+          </h4>
+        </dt>
+        <dd class="exclude tags group">
+          <dl>
+              <dt id="toggle_exclude_rating_tags" class="filter-toggle rating tags">
+                <span class="landmark">Calories </span>
+              </dt>
+              <dd id="exclude_rating_tags" class="expandable rating tags">
+                <ul>
+                    <li>
+                      <label for="exclude_work_search_rating_ids_10">
+                          <input type="checkbox" name="exclude_work_search[rating_ids][]" id="exclude_work_search_rating_ids_10" value="10"/>
+                        <span class="indicator" aria-hidden="true"></span><span>beep</span>
+</label>                    </li>
+
+                </ul>
+              </dd>
+              <dt id="toggle_exclude_archive_warning_tags" class="filter-toggle warning tags">
+                <span class="landmark">Total </span>Fat
+              </dt>
+              <dd id="exclude_archive_warning_tags" class="expandable warning tags">
+                <ul>
+                    <li>
+                      <label for="exclude_work_search_archive_warning_ids_16">
+                          <input type="checkbox" name="exclude_work_search[archive_warning_ids][]" id="exclude_work_search_archive_warning_ids_16" value="16"/>
+                        <span class="indicator" aria-hidden="true"></span><span>bloop</span>
+</label>                    </li>
+                </ul>
+              </dd>
+              <dt id="toggle_exclude_category_tags" class="filter-toggle category tags">
+                <span class="landmark">Cholesterol </span>
+              </dt>
+              <dd id="exclude_category_tags" class="expandable category tags">
+                <ul>
+                    <li>
+                      <label for="exclude_work_search_category_ids_2246">
+                          <input type="checkbox" name="exclude_work_search[category_ids][]" id="exclude_work_search_category_ids_2246"/>
+                        <span class="indicator" aria-hidden="true"></span><span></span>
+</label>                    </li>
+                </ul>
+              </dd>
+              <dt id="toggle_exclude_fandom_tags" class="filter-toggle fandom tags">
+                <span class="landmark">Sodium </span>
+              </dt>
+              <dd id="exclude_fandom_tags" class="expandable fandom tags">
+                <ul>
+                    <li>
+                      <label for="exclude_work_search_fandom_ids_264607">
+                          <input type="checkbox" name="exclude_work_search[fandom_ids][]" id="exclude_work_search_fandom_ids_264607" />
+                        <span class="indicator" aria-hidden="true"></span><span>Low sodium</span>
+</label>                    </li>
+                    <li>
+                      <label for="exclude_work_search_fandom_ids_845781">
+                          <input type="checkbox" name="exclude_work_search[fandom_ids][]" id="exclude_work_search_fandom_ids_845781"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Medium sodium</span>
+</label>                    </li>
+                    <li>
+                      <label for="exclude_work_search_fandom_ids_2529660">
+                          <input type="checkbox" name="exclude_work_search[fandom_ids][]" id="exclude_work_search_fandom_ids_2529660" />
+                        <span class="indicator" aria-hidden="true"></span><span>High sodium</span>
+</label>                    </li>
+                    <li>
+                </ul>
+              </dd>
+              <dt id="toggle_exclude_character_tags" class="filter-toggle character tags">
+                <span class="landmark">Total </span>Carbohydrate
+              </dt>
+              <dd id="exclude_character_tags" class="expandable character tags">
+                <ul>
+                    <li>
+                      <label for="exclude_work_search_character_ids_1324031">
+                          <input type="checkbox" name="exclude_work_search[character_ids][]" id="exclude_work_search_character_ids_1324031" value="1324031"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Dietary Fiber</span>
+</label>                    </li>
+                    <li>
+                      <label for="exclude_work_search_character_ids_6854">
+                          <input type="checkbox" name="exclude_work_search[character_ids][]" id="exclude_work_search_character_ids_6854" value="6854"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Sugars</span>
+</label>                    </li>
+                </ul>
+              </dd>
+              <dt id="toggle_exclude_relationship_tags" class="filter-toggle relationship tags">
+                <span class="landmark">Protein </span>
+              </dt>
+              <dd id="exclude_relationship_tags" class="expandable relationship tags">
+                <ul>
+                </ul>
+              </dd>
+          </dl>
+        </dd>
+        
+        <dt class="search">
+            <label for="work_search_query">Search within ingredients</label>
+             <a class="help symbol question modal" title="Work search text help" aria-controls="#modal" href="/help/work-search-text-help.html"><span class="symbol question"><span>?</span></span></a>
+          </dt>
+          <dd class="search">
+            <input type="text" name="work_search[query]" id="work_search_query"/>
+          </dd>
+
+      <dt class="more heading">
+        <h4 class="heading">Times and locations</h4>
+      </dt>
+
+      <dd class="more group">
+        <dl>
+          <dt id="toggle_work_crossover" class="filter-toggle crossover">Dining Commons</dt>
+          <dd id="work_crossover" class="expandable">
+            <ul>
+              <li>
+                <label for="work_search_crossover_">
+                  <input type="radio" value="" name="work_search[crossover]" id="work_search_crossover_"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Berkshire</span>
+</label>              </li>
+              <li>
+                <label for="work_search_crossover_f">
+                  <input type="radio" value="F" name="work_search[crossover]" id="work_search_crossover_f"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Franklin</span>
+</label>              </li>
+              <li>
+                <label for="work_search_crossover_t">
+                  <input type="radio" value="T" name="work_search[crossover]" id="work_search_crossover_t"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Hampshire</span>
+</label>              </li>
+              <li>
+                <label for="work_search_crossover_t">
+                  <input type="radio" value="T" name="work_search[crossover]" id="work_search_crossover_t"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Worcester</span>
+</label>              </li>
+            </ul>
+          </dd>
+          <dt id="toggle_work_complete" class="filter-toggle status">Menu times</dt>
+          <dd id="work_complete" class="expandable">
+            <ul>
+              <li>
+                <label for="work_search_complete_">
+                  <input type="checkbox" value="" checked="checked" name="work_search[complete]" id="work_search_complete_"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Breakfast</span>
+</label>              </li>
+              <li>
+                <label for="work_search_complete_t">
+                  <input type="checkbox" value="" checked="checkd" name="work_search[complete]" id="work_search_complete_t"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Lunch</span>
+</label>              </li>
+              <li>
+                <label for="work_search_complete_f">
+                  <input type="checkbox" value="" checked="checked" name="work_search[complete]" id="work_search_complete_f"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Dinner</span>
+</label>              </li>
+              <li>
+                <label for="work_search_complete_f">
+                  <input type="checkbox" value=""  name="work_search[complete]" id="work_search_complete_f"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Late Night</span>
+</label>              </li>
+            </ul>
+          </dd>
+        </dl>
+      </dd>
+      <dt class="landmark">Submit</dt>
+      <dd class="submit actions"><input type="submit" name="commit" value="Sort and Filter"/></dd>
+    </dl>
+
+
+</fieldset>
+  <p class="narrow-shown hidden">
+    <a href="#main" id="leave_filters" class="close">
+      Top    
+      </a>
+  </p>
+
+</form>
+
+<!---/subnav-->
 </body>
 </html>
