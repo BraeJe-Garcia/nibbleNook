@@ -9,4 +9,4 @@ Our web application will pull the nutritional data from UMass' Dining Commons to
 
 Topic requirements:
 Mobile
-Websockets
+Ajax
