@@ -60,38 +60,46 @@
                 </button>
               </dt>
               <dd id="include_rating_tags" class="expandable rating tags hidden">
-                      <label for="include_meal_search_diet_ids_10">
+                <ul>
+                  <li>
+                     <label for="include_meal_search_diet_ids_10">
                           <input type="checkbox" name="include_meal_search[diet_ids][]" id="include_meal_search_diet_ids_10" value="10"/>
                         <span class="indicator" aria-hidden="true"></span><span>Vegetarian</span>
-</label>                    
+</label>              
+    </li>
+    <li>
                       <label for="include_meal_search_diet_ids_11">
                           <input type="checkbox" name="include_meal_search[diet_ids][]" id="include_meal_search_diet_ids_11" value="11"/>
                         <span class="indicator" aria-hidden="true"></span><span>Vegan</span>
-</label>                   
+</label>                </li><li>  
                       <label for="include_meal_search_diet_ids_12">
                           <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_12" value="12"/>
                         <span class="indicator" aria-hidden="true"></span><span>Local</span>
-</label>                    
+</label>                  </li><li>  
                       <label for="include_meal_search_diet_ids_13">
                           <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="13"/>
                         <span class="indicator" aria-hidden="true"></span><span>Whole Grain</span>
-</label>                    
+</label>                    </li><li> 
                       <label for="include_meal_search_diet_ids_13">
                           <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="14"/>
                         <span class="indicator" aria-hidden="true"></span><span>Halal</span>
-</label>                    
+</label>                    </li><li> 
 					  <label for="include_meal_search_diet_ids_13">
                           <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="15"/>
                         <span class="indicator" aria-hidden="true"></span><span>Antibiotic Free</span>
-</label>                    
+</label>                    </li><li> 
 					  <label for="include_meal_search_diet_ids_13">
                           <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="16"/>
                         <span class="indicator" aria-hidden="true"></span><span>Sustainable</span>
-</label>         
+</label>         </li>
+  </ul>
               </dd>
-              <dt id="toggle_include_allergens" class="filter-toggle allergens">
+              <dt id="toggle_include_allergens_tags" class="filter-toggle allergens diet collapsed">
+                <button type="button" class="expander" aria-expanded="false" aria-controls="include_rating_tags">
                 <span class="landmark">Allergies </span>
-              </dt>
+                 </button>
+               </dt>
+ 
               <dd id="include_allergens" class="expandable tags">
                 <ul>
                     <li>
@@ -162,46 +170,51 @@
         </dt>
         <dd class="exclude tags group">
           <dl>
-              <dt id="toggle_exclude_rating_tags" class="filter-toggle rating tags">
-                <span class="landmark">Calories </span>
+              <dt id="toggle_exclude_calories_tags" class="filter-toggle calories collapsed">
+                  <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+                  <span class="landmark">Calories </span>
+                   </button>
               </dt>
               <dd id="exclude_rating_tags" class="expandable rating tags">
                 <ul>
                     <li>
                       <label for="exclude_meal_search_rating_ids_10">
-                          <input type="checkbox" name="exclude_meal_search[rating_ids][]" id="exclude_meal_search_rating_ids_10" value="10"/>
-                        <span class="indicator" aria-hidden="true"></span><span>beep</span>
+                          <input type="range" name="exclude_meal_search[rating_ids][]" id="exclude_meal_search_rating_ids_10" value="10"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Range</span>
 </label>                    </li>
 
                 </ul>
               </dd>
-              <dt id="toggle_exclude_archive_warning_tags" class="filter-toggle warning tags">
-                <span class="landmark">Total </span>Fat
-              </dt>
+              <dt id="toggle_exclude_fat_tags" class="filter-toggle tags collapsed">
+                  <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+                      <span class="landmark">Fat </span>
+                       </button>              </dt>
               <dd id="exclude_archive_warning_tags" class="expandable warning tags">
                 <ul>
                     <li>
                       <label for="exclude_meal_search_archive_warning_ids_16">
-                          <input type="checkbox" name="exclude_meal_search[archive_warning_ids][]" id="exclude_meal_search_archive_warning_ids_16" value="16"/>
-                        <span class="indicator" aria-hidden="true"></span><span>bloop</span>
+                          <input type="range" name="exclude_meal_search[archive_warning_ids][]" id="exclude_meal_search_archive_warning_ids_16" value="16"/>
+                        <span class="indicator" aria-hidden="true"></span><span>Range</span>
 </label>                    </li>
                 </ul>
               </dd>
-              <dt id="toggle_exclude_category_tags" class="filter-toggle category tags">
-                <span class="landmark">Cholesterol </span>
-              </dt>
+              <dt id="toggle_exclude_category_tags" class="filter-toggle tags collapsed">
+                  <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+                      <span class="landmark">Cholesterol </span>
+                       </button>              </dt>
               <dd id="exclude_category_tags" class="expandable category tags">
                 <ul>
                     <li>
                       <label for="exclude_meal_search_category_ids_2246">
-                          <input type="checkbox" name="exclude_meal_search[category_ids][]" id="exclude_meal_search_category_ids_2246"/>
+                          <input type="range" name="exclude_meal_search[category_ids][]" id="exclude_meal_search_category_ids_2246"/>
                         <span class="indicator" aria-hidden="true"></span><span></span>
 </label>                    </li>
                 </ul>
               </dd>
               <dt id="toggle_exclude_fandom_tags" class="filter-toggle fandom tags">
-                <span class="landmark">Sodium </span>
-              </dt>
+                  <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+                      <span class="landmark">Sodium </span>
+                       </button>              </dt>
               <dd id="exclude_fandom_tags" class="expandable fandom tags">
                 <ul>
                     <li>
@@ -219,31 +232,38 @@
                           <input type="checkbox" name="exclude_meal_search[fandom_ids][]" id="exclude_meal_search_fandom_ids_2529660" />
                         <span class="indicator" aria-hidden="true"></span><span>High sodium</span>
 </label>                    </li>
-                    <li>
                 </ul>
               </dd>
               <dt id="toggle_exclude_character_tags" class="filter-toggle character tags">
-                <span class="landmark">Total </span>Carbohydrate
-              </dt>
+                  <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+                      <span class="landmark">Total Carbohydrates </span>
+                       </button>              </dt>
               <dd id="exclude_character_tags" class="expandable character tags">
                 <ul>
                     <li>
                       <label for="exclude_meal_search_character_ids_1324031">
-                          <input type="checkbox" name="exclude_meal_search[character_ids][]" id="exclude_meal_search_character_ids_1324031" value="1324031"/>
+                          <input type="range" name="exclude_meal_search[character_ids][]" id="exclude_meal_search_character_ids_1324031" value="1324031"/>
                         <span class="indicator" aria-hidden="true"></span><span>Dietary Fiber</span>
 </label>                    </li>
                     <li>
                       <label for="exclude_meal_search_character_ids_6854">
-                          <input type="checkbox" name="exclude_meal_search[character_ids][]" id="exclude_meal_search_character_ids_6854" value="6854"/>
+                          <input type="range" name="exclude_meal_search[character_ids][]" id="exclude_meal_search_character_ids_6854" value="6854"/>
                         <span class="indicator" aria-hidden="true"></span><span>Sugars</span>
 </label>                    </li>
                 </ul>
               </dd>
               <dt id="toggle_exclude_relationship_tags" class="filter-toggle relationship tags">
-                <span class="landmark">Protein </span>
-              </dt>
+                  <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+                      <span class="landmark">Protein </span>
+                       </button>              </dt>
               <dd id="exclude_relationship_tags" class="expandable relationship tags">
                 <ul>
+                  <li>
+                    <label for="exclude_meal_search_character_ids_6854">
+                        <input type="range" name="exclude_meal_search[character_ids][]" id="exclude_meal_search_character_ids_6854" value="6854"/>
+                      <span class="indicator" aria-hidden="true"></span><span></span>
+</label>                    </li>
+
                 </ul>
               </dd>
           </dl>
@@ -260,8 +280,12 @@
         <h4 class="heading">Times and locations</h4>
       </dt>
 
-          <dt id="toggle_work_complete" class="filter-toggle status">Menu times</dt>
-          <dd id="work_complete" class="expandable">
+      <dt id="toggle_exclude_relationship_tags" class="filter-toggle relationship tags">
+          <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+              <span class="landmark">Menu times
+              </span>
+               </button>              </dt>
+  <dd id="work_complete" class="expandable">
             <ul>
               <li>
                 <label for="meal_search_complete_">
