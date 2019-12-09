@@ -115,12 +115,12 @@ function clean(arr) {
 
 //converts html value attribute to csv label
 function translate(filters) {
-  var dcValues = ["berk", "hamp", "woo", "frank"];
+  var dcValues = ["berk", "hamp", "frank", "woo"];
   var dietValues = ["10", "11", "12", "13", "14", "15", "16"];
   var allergiesValues = ["21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "20555"];
   var mealValues = ["breakfast", "lunch", "dinner", "late night"];
   
-  dcKeys = ["Berkshire", "Hampshire", "Franklin", "Worcester"];
+  dcKeys = ["berkshire", "hampshire", "franklin", "worcester"]
   dietKeys = ["Vegetarian", "Vegan", "Local", "Whole Grain", "Halal", "Antiobiotic Free", "Sustainable"];
   allergiesKeys = ["Milk", "Peanuts", "Shellfish", "Eggs", "Gluten", "Tree Nuts", "Fish", "Soy", "Corn", "Sesame"];
   mealKeys = ["breakfastentrees", "lunch", "dinner", "latenight"];
@@ -151,13 +151,23 @@ function ready() {
       filters.push($(this).val());
     });
     filters = translate(filters);
+    
+    var filenames = [];
+    for (dc of dcKeys) {
+      if (filters.includes(dc)) {
+        filenames.push(dc + ".csv");
+      }
+    }
 
-    $.get("Nibby.csv", function(data) {
-      filter(objectify(data), filters);
-    }, "text").fail(function(jqXHR) {
-      console.log("There was a problem contacting the server: " + jqXHR.status + " " + jqXHR.responseText);
-    });
-  }, 5000);
+    for (filename of filenames) {
+      $.get(filename, function(data) {
+        filter(objectify(data), filters);
+      }, "text").fail(function(jqXHR) {
+        console.log("There was a problem contacting the server: " + jqXHR.status + " " + jqXHR.responseText);
+      });
+      
+    }
+  }, 500);
   
 }
 
