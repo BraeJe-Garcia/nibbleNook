@@ -1,3 +1,15 @@
+function display(data) {
+  for (meal of Object.keys(data)) {
+    if (data[meal].length > 0) {
+      $("<ul class='results'>" + meal + "</ul>").insertAfter("p.narrow-shown-hidden");
+      for (item of data[meal]) {
+        $("<li>" + item.Name + "</li>").appendTo("ul.results");
+      }
+    }
+    console.log(meal);
+  }
+}
+
 function filter(data, filters) {
   for (meal of mealKeys) {
     if (!filters.includes(meal) && Object.keys(data).includes(meal)) {
@@ -11,13 +23,12 @@ function filter(data, filters) {
       data = removeAllg(data, allg);
     }
   }
-  
   for (diet of dietKeys) {
     if(filters.includes(diet)) {
       data = findDiet(data, diet);
     }
   }
-  console.log(data);
+  display(data);
 }
 
 function removeAllg(data, allg) {
@@ -172,6 +183,7 @@ function ready() {
 }
 
 $(document).ready(ready);
+
 
 
 
