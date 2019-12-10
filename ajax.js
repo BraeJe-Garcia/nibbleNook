@@ -1,16 +1,47 @@
 function display(data) {
   for (meal of Object.keys(data)) {
     if (data[meal].length > 0) {
-      $("<ul class='results'>" + meal + "</ul>").insertAfter("p.narrow-shown-hidden");
+      $("<ul class='results'>" + meal + "</ul>").insertAfter("a.close");
+      data[meal].sort(function(a, b) {
+        return relevance(b) - relevance(a);
+      });
+      var i = 0;
       for (item of data[meal]) {
+        if (i >= 5) {
+          break;
+        }
         $("<li>" + item.Name + "</li>").appendTo("ul.results");
+        i++;
       }
     }
-    console.log(meal);
   }
 }
 
+function relevance(meal) {
+  var ratio = nutrition.calories / meal.Calories;
+  console.log(ratio);
+  var relevance = 0;
+
+  var vals = Object.keys(nutrition);
+  var keys = translateNutr(Object.keys(nutrition))
+  for (var i = 1; i < vals.length; i++) {
+    var key = keys[i];
+    var val = vals[i];
+    var mealkey = parseFloat(removeGram(meal[key]));
+    relevance = relevance + (mealkey*ratio - nutrition[val]);
+  }
+  return relevance;
+}
+
+function removeGram(str) {
+  if (str.indexOf("g") != -1) {
+    str = str.substring(0, str.length - 1);
+  }
+  return str;
+}
+
 function filter(data, filters) {
+  console.log(filters);
   for (meal of mealKeys) {
     if (!filters.includes(meal) && Object.keys(data).includes(meal)) {
       if (data[meal].length > 0) {
@@ -24,7 +55,7 @@ function filter(data, filters) {
     }
   }
   for (diet of dietKeys) {
-    if(filters.includes(diet)) {
+    if (filters.includes(diet)) {
       data = findDiet(data, diet);
     }
   }
@@ -68,13 +99,15 @@ function objectify(data) {
     if (item !== "") {
       // tests whether csv line is header
       if (item.indexOf(",") == -1) {
-        var meal = (item.toLowerCase()).replace(/\s/g, "");
+        var meal = (item.toLowerCase()).replace(/\s/g, "").replace(/'/g, "");
         currMeal = meal;
         menu[meal] = [];
       }
       else {
-        var dish = rowToObj(item, labels);
-        menu[currMeal].push(dish);
+        if (validRow(item)) {
+          var dish = rowToObj(item, labels);
+          menu[currMeal].push(dish);
+        }
       }
     }
   }
@@ -84,15 +117,44 @@ function objectify(data) {
 //converts menu item row from csv into object
 function rowToObj(text, labels) {
   var lists = text.split('"');
-  
   clean(lists);
   // 1st element is simply the nutrient attributes which are ignored by the list section
   var nutrients = lists.shift().split(",");
-  clean(nutrients);
+  nutrients.splice(nutrients.length - 1, 1);
   if (lists.length < 3) {
-    lists.unshift(nutrients.pop());
+    var first = lists[0].split(',');
+    for (i in first) {
+      first[i] = first[i].replace(/^\s+|\s+$/g, "");
+    }
+    if (contains(first, allergiesKeys)) {
+      //dietary restrictions attribute got stuck in nutrients array
+      lists.unshift(nutrients.pop());
+    }
+    else if (contains(first, dietKeys)) {
+      var temp = lists.pop().split(',');
+      //one of allergens and ingredients is empty
+      if (count(temp) >= 2) {
+        if (temp[0] === '') {
+          clean(temp);
+          temp.unshift('');
+        }
+        else {
+          temp.push('');
+        }
+      }
+      else {
+        clean(temp);
+      }
+      for (elem of temp) {
+        lists.push(elem);
+      }
+    }
+    //must contain ingredients
+    else {
+      lists.unshift(nutrients.pop());
+      lists.unshift(nutrients.pop());
+    }
   }
-  
   //converts allergens and diets list into arrays
   for (var i = 0; i < lists.length - 1; i++) {
     lists[i] = lists[i].split(",");
@@ -111,10 +173,19 @@ function rowToObj(text, labels) {
   return dish;
 }
 
+function contains(arr1, arr2) {
+  for (elem of arr1) {
+    if (!(arr2.includes(elem))) {
+      return false;
+    }
+  }
+  return true;
+}
+
 //gets rid of unnecessary array elements and trims the preceding and trailing whitespaces off the necessary ones
 function clean(arr) {
   for (var i = 0; i < arr.length; i++) {
-    if (!(/\w/).test(arr[i])) {
+    if (!(/,.*,+|\w/).test(arr[i])) {
       arr.splice(i, 1);
       i--;
     }
@@ -123,18 +194,33 @@ function clean(arr) {
     }
   }
 }
+ 
+//returns count of unnecessary elements in array
+function count(arr) {
+  var count = 0;
+  for (var i = 0; i < arr.length; i++) {
+    if (!(/,.*,+|\w/).test(arr[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+
+function validRow(str) {
+  return !(/\d?"/).test(str.substring(0, 2));
+}
 
 //converts html value attribute to csv label
 function translate(filters) {
   var dcValues = ["berk", "hamp", "frank", "woo"];
   var dietValues = ["10", "11", "12", "13", "14", "15", "16"];
   var allergiesValues = ["21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "20555"];
-  var mealValues = ["breakfast", "lunch", "dinner", "late night"];
+  var mealValues = ["breakfast", "lunch", "dinner", "late night", "grab n go"];
   
   dcKeys = ["berkshire", "hampshire", "franklin", "worcester"]
-  dietKeys = ["Vegetarian", "Vegan", "Local", "Whole Grain", "Halal", "Antiobiotic Free", "Sustainable"];
+  dietKeys = ["Vegetarian", "Vegan", "Local", "Whole Grain", "Halal", "Antibiotic Free", "Sustainable"];
   allergiesKeys = ["Milk", "Peanuts", "Shellfish", "Eggs", "Gluten", "Tree Nuts", "Fish", "Soy", "Corn", "Sesame"];
-  mealKeys = ["breakfastentrees", "lunch", "dinner", "latenight"];
+  mealKeys = ["breakfastentrees", "lunch", "dinner", "latenight", "grabngo"];
 
   for (i = 0; i < filters.length; i++) {
     if (dcValues.includes(filters[i])) {
@@ -153,14 +239,28 @@ function translate(filters) {
   return filters;
 }
 
+function translateNutr(arr) {
+  nutrValues = ["calories", "fat", "cholesterol", "sodium", "carbohydrates", "protein"];
+  nutrKeys = ["Calories", "Total Fat", "Cholesterol", "Sodium", "Total Carbs", "Protein"];
+  for (i = 0; i < arr.length; i++) {
+    arr[i] = nutrKeys[nutrValues.indexOf(arr[i])];
+  }
+  return arr;
+}
+
 function ready() {
   setTimeout(function() {
     console.log("Ready");
     var filters = [];
-
-    $(":checked").each(function(elem) {
-      filters.push($(this).val());
-    });
+    //hardcoded for testing
+    nutrition = {calories: 100, fat: 100, cholesterol: 100, sodium: 100, carbohydrates: 100, protein: 100};
+    
+    // $(":checked").each(function(elem) {
+    //   filters.push($(this).val());
+    // });
+    // console.log(filters);
+    //hardcoded for testing
+    filters = ["frank", "25", "breakfast"];
     filters = translate(filters);
     
     var filenames = [];
