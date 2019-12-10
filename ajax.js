@@ -2,14 +2,14 @@ function display(data) {
   for (meal of Object.keys(data)) {
     if (data[meal].length > 0) {
       $("<ul class='results'>" + meal + "</ul>").insertAfter("a.close");
-      data[meal].sort(function(a, b) {
-        return relevance(b) - relevance(a);
-      });
+      // data[meal].sort(function(a, b) {
+      //   return relevance(b) - relevance(a);
+      // });
       var i = 0;
       for (item of data[meal]) {
-        if (i >= 5) {
-          break;
-        }
+        // if (i >= 5) {
+        //   break;
+        // }
         $("<li>" + item.Name + "</li>").appendTo("ul.results");
         i++;
       }
@@ -19,7 +19,6 @@ function display(data) {
 
 function relevance(meal) {
   var ratio = nutrition.calories / meal.Calories;
-  console.log(ratio);
   var relevance = 0;
 
   var vals = Object.keys(nutrition);
@@ -255,12 +254,10 @@ function ready() {
     //hardcoded for testing
     nutrition = {calories: 100, fat: 100, cholesterol: 100, sodium: 100, carbohydrates: 100, protein: 100};
     
-    // $(":checked").each(function(elem) {
-    //   filters.push($(this).val());
-    // });
-    // console.log(filters);
-    //hardcoded for testing
-    filters = ["frank", "25", "breakfast"];
+    $(":checked").each(function(elem) {
+      filters.push($(this).val());
+    });
+    console.log(filters);
     filters = translate(filters);
     
     var filenames = [];
@@ -278,12 +275,8 @@ function ready() {
       });
       
     }
-  }, 500);
+  }, 10000);
   
 }
 
 $(document).ready(ready);
-
-
-
-
