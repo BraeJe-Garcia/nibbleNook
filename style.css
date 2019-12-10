@@ -6,6 +6,14 @@ html,body{
    color...
 }
 
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #881c1c;
+  color: white;
+  font-size: 30px;
+}
+
 h1,h2,h3{}
 p, blockquote, pre, code, ol, ul{}
 
