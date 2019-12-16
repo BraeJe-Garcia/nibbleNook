@@ -87,6 +87,10 @@ function toggleFilter() {
     document.getElementById("work-filters").classList.toggle("narrow-hidden");
 }
 
+function toggleHelp() {
+  document.getElementById("help").classList.toggle("hidden");
+}
+
 function display(data) {
   for (meal of Object.keys(data)) {
     if (data[meal].length > 0) {
