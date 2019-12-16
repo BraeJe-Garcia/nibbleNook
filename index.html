@@ -77,23 +77,23 @@
           <dd id="dc" class="expandable">
           <ul id="dc_list">
             <li>
-              <label for="meal_search_complete_">
-                <input type="checkbox" value="berk" checked="checked" name="meal_search[complete]" id="meal_search_complete_"/>
+              <label for="berk">
+                <input type="checkbox" value="berk" checked="checked" name="meal_search[complete]" id="berk"/>
                 <span class="indicator" aria-hidden="true"></span><span>Berkshire</span>
   </label>              </li>
             <li>
-              <label for="meal_search_complete_t">
-                <input type="checkbox" value="woo" checked="checked" name="meal_search[complete]" id="meal_search_complete_t"/>
+              <label for="woo">
+                <input type="checkbox" value="woo" checked="checked" name="meal_search[complete]" id="woo"/>
                 <span class="indicator" aria-hidden="true"></span><span>Worcester</span>
   </label>              </li>
             <li>
-              <label for="meal_search_complete_f">
-                <input type="checkbox" value="frank" checked="checked" name="meal_search[complete]" id="meal_search_complete_f"/>
+              <label for="frank">
+                <input type="checkbox" value="frank" checked="checked" name="meal_search[complete]" id="frank"/>
                 <span class="indicator" aria-hidden="true"></span><span>Franklin</span>
   </label>              </li>
             <li>
-              <label for="meal_search_complete_f">
-                <input type="checkbox" value="hamp" checked="checked" name="meal_search[complete]" id="meal_search_complete_f"/>
+              <label for="hamp">
+                <input type="checkbox" value="hamp" checked="checked" name="meal_search[complete]" id="hamp"/>
                 <span class="indicator" aria-hidden="true"></span><span>Hampshire</span>
   </label>              </li>
           </ul>
@@ -106,23 +106,23 @@
     <dd id="meal_times" class="expandable">
               <ul>
                 <li>
-                  <label for="meal_search_complete_">
-                    <input type="checkbox" value="breakfast" checked="checked" name="meal_search[complete]" id="meal_search_complete_"/>
+                  <label for="meal_search_b">
+                    <input type="checkbox" value="breakfast" checked="checked" name="meal_search[complete]" id="meal_search_b"/>
                     <span class="indicator" aria-hidden="true"></span><span>Breakfast</span>
   </label>              </li>
                 <li>
-                  <label for="meal_search_complete_t">
-                    <input type="checkbox" value="lunch" checked="checkd" name="meal_search[complete]" id="meal_search_complete_t"/>
+                  <label for="meal_search_l">
+                    <input type="checkbox" value="lunch" checked="checked" name="meal_search[complete]" id="meal_search_l"/>
                     <span class="indicator" aria-hidden="true"></span><span>Lunch</span>
   </label>              </li>
                 <li>
-                  <label for="meal_search_complete_f">
-                    <input type="checkbox" value="dinner" checked="checked" name="meal_search[complete]" id="meal_search_complete_f"/>
+                  <label for="meal_search_d">
+                    <input type="checkbox" value="dinner" checked="checked" name="meal_search[complete]" id="meal_search_d"/>
                     <span class="indicator" aria-hidden="true"></span><span>Dinner</span>
   </label>              </li>
                 <li>
-                  <label for="meal_search_complete_f">
-                    <input type="checkbox" value="late night"  name="meal_search[complete]" id="meal_search_complete_f"/>
+                  <label for="meal_search_n">
+                    <input type="checkbox" value="late night"  name="meal_search[complete]" id="meal_search_n"/>
                     <span class="indicator" aria-hidden="true"></span><span>Late Night</span>
   </label>              </li>
               </ul>
@@ -161,16 +161,16 @@
                             <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="13"/>
                           <span class="indicator" aria-hidden="true"></span><span>Whole Grain</span>
   </label>                    </li><li> 
-                        <label for="include_meal_search_diet_ids_13">
-                            <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="14"/>
+                        <label for="include_meal_search_diet_ids_14">
+                            <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_14" value="14"/>
                           <span class="indicator" aria-hidden="true"></span><span>Halal</span>
   </label>                    </li><li> 
-              <label for="include_meal_search_diet_ids_13">
-                            <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="15"/>
+              <label for="include_meal_search_diet_ids_15">
+                            <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_15" value="15"/>
                           <span class="indicator" aria-hidden="true"></span><span>Antibiotic Free</span>
   </label>                    </li><li> 
-              <label for="include_meal_search_diet_ids_13">
-                            <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_13" value="16"/>
+              <label for="include_meal_search_diet_ids_16">
+                            <input type="checkbox" name="include_meal_search[rating_ids][]" id="include_meal_search_diet_ids_16" value="16"/>
                           <span class="indicator" aria-hidden="true"></span><span>Sustainable</span>
   </label>         </li>
     </ul>
@@ -240,7 +240,7 @@
                 <label for="meal_search_other_ing_names">Other ingredients to avoid</label>
               </dt>
               <dd class="autocomplete search">
-                <input class="autocomplete" autocomplete_method="/autocomplete/ing" autocomplete_hint_text="Start typing for suggestions!" autocomplete_no_results_text="(No ingredients found)" autocomplete_min_chars="1" autocomplete_searching_text="Searching..." type="text" name="meal_search[other_tag_names]" id="meal_search_other_tag_names"/>
+                <input class="autocomplete" autocomplete_method="/autocomplete/ing" autocomplete_hint_text="Start typing for suggestions!" autocomplete_no_results_text="(No ingredients found)" autocomplete_min_chars="1" autocomplete_searching_text="Searching..." type="text" name="meal_search[other_tag_names]" id="meal_search_exclude"/>
               </dd>
           </dd>
           <dt class="exclude heading">
@@ -343,8 +343,8 @@
                 <dd id="exclude_relationship_tags" class="expandable relationship tags">
                   <ul>
                     <li>
-                      <label for="exclude_meal_search_character_ids_6854">
-                          <input type="range" name="exclude_meal_search[character_ids][]" id="exclude_meal_search_character_ids_6854" value="6854"/>
+                      <label for="exclude_meal_search_character_ids_6855">
+                          <input type="range" name="exclude_meal_search[character_ids][]" id="exclude_meal_search_character_ids_6855" value="6855"/>
                         <span class="indicator" aria-hidden="true"></span><span></span>
   </label>                    </li>
   
@@ -355,7 +355,7 @@
                   <label for="meal_search_other_ing_names">Search for ingredients</label>
                 </dt>
                 <dd class="autocomplete search">
-                  <input class="autocomplete" autocomplete_method="/autocomplete/ing" autocomplete_hint_text="Start typing for suggestions!" autocomplete_no_results_text="(No ingredients found)" autocomplete_min_chars="1" autocomplete_searching_text="Searching..." type="text" name="meal_search[other_tag_names]" id="meal_search_other_tag_names"/>
+                  <input class="autocomplete" autocomplete_method="/autocomplete/ing" autocomplete_hint_text="Start typing for suggestions!" autocomplete_no_results_text="(No ingredients found)" autocomplete_min_chars="1" autocomplete_searching_text="Searching..." type="text" name="meal_search[other_tag_names]" id="meal_search_include"/>
                 </dd>
             </dl>
           </dd>
