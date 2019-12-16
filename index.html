@@ -44,7 +44,9 @@
     
     <!--content-->
     <div id="content">
-      
+      <ul class="results">
+
+      </ul>
     </div>
     <!--/content-->
   
@@ -55,7 +57,7 @@
     <fieldset><legend>Filter menu:</legend>
       <dl>
         <!--<dt class="landmark">Submit</dt>-->
-        <dd class="submit actions"><input type="submit" name="commit" value="Sort and Filter"/></dd>
+        <dd class="submit actions"><input type="button" id="submit-button" value="Sort and Filter" onclick="onSubmit()"/></dd>
   <!---     <dd class="dc">
           <select name="dc_search[sort_column]" id="dc_search_sort_column">
   <option value="berk">Berkshire</option>
@@ -359,7 +361,7 @@
           </dd>
           
         <!--<dt class="landmark">Submit</dt>-->     
-         <dd class="submit actions"><input type="submit" name="commit" value="Sort and Filter"/></dd>
+         <dd class="submit actions"><input type="button" id="submit-button" value="Sort and Filter" onclick="onSubmit()"></dd>
       </dl>
   
   

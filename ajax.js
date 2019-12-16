@@ -248,7 +248,7 @@ function translateNutr(arr) {
 }
 
 function ready() {
-  setTimeout(function() {
+   setTimeout(function() {
     console.log("Ready");
     var filters = [];
     //hardcoded for testing
@@ -275,7 +275,7 @@ function ready() {
       });
       
     }
-  }, 10000);
+   }, 10000);
   
 }
 
