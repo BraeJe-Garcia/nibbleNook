@@ -82,3 +82,7 @@ function setupAccordion() {
 		});
 	});
 }
+
+function toggleFilter() {
+    document.getElementById("work-filters").classList.toggle("narrow-hidden");
+}
