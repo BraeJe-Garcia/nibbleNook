@@ -1,7 +1,15 @@
 import scraper
 import csv
 
+from flask import Flask, render_template, request, jsonify
 
+app = Flask(__name__)
+
+
+@app.route('/')
+#@app.route('/index.html')
+
+@app.route('/nibTest')
 def scrape_nutrients(csvWriter, nib_scrape,
                      cutoff):  # grabs the nutrient values, cutoff is the point where we stop scraping
     nib_scrape.move_to('data-ingredient-list')
@@ -124,7 +132,6 @@ def build_csv(csv_name, dhall_scraper):  # builds csv line by line,
                 break
             else:
                 scrape_nutrients(csvWriter, dhall_scraper, "Upcoming Menus")
-
 
 #########################
 
