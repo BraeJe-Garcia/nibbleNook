@@ -204,12 +204,16 @@ function objectify(data) {
 
 //converts menu item row from csv into object
 function rowToObj(text, labels) {
+  console.log(text);
   var lists = text.split('"');
   clean(lists);
   // 1st element is simply the nutrient attributes which are ignored by the list section
   var nutrients = lists.shift().split(",");
   nutrients.splice(nutrients.length - 1, 1);
   if (lists.length < 3) {
+    if (lists.length == 0) {
+      return {};
+    }
     var first = lists[0].split(',');
     for (i in first) {
       first[i] = first[i].replace(/^\s+|\s+$/g, "");
