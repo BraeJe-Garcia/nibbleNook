@@ -6,14 +6,33 @@ html,body{
    color...
 }
 
-.header {
+/*.header {
   padding: 40px;
   text-align: center;
   background: #881c1c;
   color: white;
   font-size: 20px;
+}*/
+.header h1, .header p {
+  position: relative;
+  top: 0px;
+  left: 25px;
 }
+.header .logo {
+  float: left;
+  height: 100px;
+}
+.header {
+  position: relative;
+  background: #881c1c;
+  color: white;
+  padding: 20px 25px;
+  margin: -10px;
+}
+.header p {
+  font-size: 1.1em;
 
+}
 h1,h2,h3{}
 p, blockquote, pre, code, ol, ul{}
 
@@ -41,6 +60,21 @@ p, blockquote, pre, code, ol, ul{}
 #sidebar-right{
   width: 20%;
   float: left;
+}
+ul li {
+  padding: .15em 0em;
+}
+ul, li
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+dt button{
+  font-family: serif;
+  font-size: 1em;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 /*begin trying collapsibles*/

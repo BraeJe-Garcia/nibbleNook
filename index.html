@@ -12,7 +12,8 @@
 <body>
   <title>nibbleNook</title>
   <div class="header">
-      <h1>nibbleNook</h1>
+    <img alt="Archive of Our Own" class="logo" src="images/logo_white.png">  
+    <h1>nibbleNook</h1>
       <p>Your UMass' dining helper</p>
     </div>
 <span id="main"></span>
@@ -23,39 +24,82 @@
   <h3 class="landmark heading">Filters</h3>
   <fieldset><legend>Filter menu:</legend>
     <dl>
-      <dt class="landmark">Submit</dt>
+      <!--<dt class="landmark">Submit</dt>-->
       <dd class="submit actions"><input type="submit" name="commit" value="Sort and Filter"/></dd>
-      <dt class="sort">
-        <label for="meal_search_sort_column">Dining Commons</label>
-      </dt>
-      <dd class="dc">
+<!---     <dd class="dc">
         <select name="dc_search[sort_column]" id="dc_search_sort_column">
 <option value="berk">Berkshire</option>
 <option value="woo">Worcester</option>
 <option selected="frank" value="frank">Franklin</option>
 <option value="hamp">Hampshire</option>
 </select>
-      </dd>
-      <!--
-      <dt class="sort">
-        <label for="meal_search_sort_column">Sort by</label>
-      </dt>
-      <dd class="sort">
-        <select name="meal_search[sort_column]" id="meal_search_sort_column"><option value="authors_to_sort_on">Author</option>
-<option value="title_to_sort_on">Title</option>
-<option value="created_at">Date Posted</option>
-<option selected="selected" value="revised_at">Date Updated</option>
-<option value="word_count">Word Count</option>
-<option value="hits">Hits</option>
-<option value="kudos_count">Kudos</option>
-<option value="comments_count">Comments</option>
-<option value="bookmarks_count">Bookmarks</option></select>
       </dd>-->
+      <dt class="more heading">
+        <h4 class="heading">Times and locations</h4>
+      </dt>
+      <dt id="toggle_meal_times" class="filter-toggle dc tags">
+        <button type="button" class="expander" aria-expanded="true" aria-controls="include_ingrendient_tags">
+            <span class="landmark">Dining Commons
+            </span>
+             </button>              </dt>
+        <dd id="dc" class="expandable">
+        <ul id="dc_list">
+          <li>
+            <label for="meal_search_complete_">
+              <input type="checkbox" value="berk" checked="checked" name="meal_search[complete]" id="meal_search_complete_"/>
+              <span class="indicator" aria-hidden="true"></span><span>Berkshire</span>
+</label>              </li>
+          <li>
+            <label for="meal_search_complete_t">
+              <input type="checkbox" value="woo" checked="checked" name="meal_search[complete]" id="meal_search_complete_t"/>
+              <span class="indicator" aria-hidden="true"></span><span>Worcester</span>
+</label>              </li>
+          <li>
+            <label for="meal_search_complete_f">
+              <input type="checkbox" value="frank" checked="checked" name="meal_search[complete]" id="meal_search_complete_f"/>
+              <span class="indicator" aria-hidden="true"></span><span>Franklin</span>
+</label>              </li>
+          <li>
+            <label for="meal_search_complete_f">
+              <input type="checkbox" value="hamp" checked="checked" name="meal_search[complete]" id="meal_search_complete_f"/>
+              <span class="indicator" aria-hidden="true"></span><span>Hampshire</span>
+</label>              </li>
+        </ul>
+      </dd>
+      <dt id="toggle_meal_times" class="filter-toggle relationship tags">
+          <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
+              <span class="landmark">Menu times
+              </span>
+               </button>              </dt>
+  <dd id="meal_times" class="expandable">
+            <ul>
+              <li>
+                <label for="meal_search_complete_">
+                  <input type="checkbox" value="breakfast" checked="checked" name="meal_search[complete]" id="meal_search_complete_"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Breakfast</span>
+</label>              </li>
+              <li>
+                <label for="meal_search_complete_t">
+                  <input type="checkbox" value="lunch" checked="checkd" name="meal_search[complete]" id="meal_search_complete_t"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Lunch</span>
+</label>              </li>
+              <li>
+                <label for="meal_search_complete_f">
+                  <input type="checkbox" value="dinner" checked="checked" name="meal_search[complete]" id="meal_search_complete_f"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Dinner</span>
+</label>              </li>
+              <li>
+                <label for="meal_search_complete_f">
+                  <input type="checkbox" value="late night"  name="meal_search[complete]" id="meal_search_complete_f"/>
+                  <span class="indicator" aria-hidden="true"></span><span>Late Night</span>
+</label>              </li>
+            </ul>
+          </dd>
+      </dd>
+      
 
         <dt class="include heading">
-          <h4 class="heading">
-            Preferences
-          </h4>
+          <h4 class="heading">Preferences</h4>
         </dt>
         <dd class="include diet group">
           <dl>
@@ -166,7 +210,6 @@
             <dd class="autocomplete search">
               <input class="autocomplete" autocomplete_method="/autocomplete/ing" autocomplete_hint_text="Start typing for suggestions!" autocomplete_no_results_text="(No ingredients found)" autocomplete_min_chars="1" autocomplete_searching_text="Searching..." type="text" name="meal_search[other_tag_names]" id="meal_search_other_tag_names"/>
             </dd>
-          </dl>
         </dd>
         <dt class="exclude heading">
           <h4 class="heading">
@@ -271,53 +314,18 @@
 
                 </ul>
               </dd>
+
+              <dt class="autocomplete search">
+                <label for="meal_search_other_ing_names">Search for ingredients</label>
+              </dt>
+              <dd class="autocomplete search">
+                <input class="autocomplete" autocomplete_method="/autocomplete/ing" autocomplete_hint_text="Start typing for suggestions!" autocomplete_no_results_text="(No ingredients found)" autocomplete_min_chars="1" autocomplete_searching_text="Searching..." type="text" name="meal_search[other_tag_names]" id="meal_search_other_tag_names"/>
+              </dd>
           </dl>
         </dd>
         
-        <dt class="search">
-            <label for="meal_search_query">Search within ingredients</label>
-        </dt>
-          <dd class="search">
-            <input type="text" name="meal_search[query]" id="meal_search_query"/>
-          </dd>
-
-      <dt class="more heading">
-        <h4 class="heading">Times and locations</h4>
-      </dt>
-
-      <dt id="toggle_exclude_relationship_tags" class="filter-toggle relationship tags">
-          <button type="button" class="expander" aria-expanded="false" aria-controls="include_ingrendient_tags">
-              <span class="landmark">Menu times
-              </span>
-               </button>              </dt>
-  <dd id="work_complete" class="expandable">
-            <ul>
-              <li>
-                <label for="meal_search_complete_">
-                  <input type="checkbox" value="breakfast" checked="checked" name="meal_search[complete]" id="meal_search_complete_"/>
-                  <span class="indicator" aria-hidden="true"></span><span>Breakfast</span>
-</label>              </li>
-              <li>
-                <label for="meal_search_complete_t">
-                  <input type="checkbox" value="lunch" checked="checkd" name="meal_search[complete]" id="meal_search_complete_t"/>
-                  <span class="indicator" aria-hidden="true"></span><span>Lunch</span>
-</label>              </li>
-              <li>
-                <label for="meal_search_complete_f">
-                  <input type="checkbox" value="dinner" checked="checked" name="meal_search[complete]" id="meal_search_complete_f"/>
-                  <span class="indicator" aria-hidden="true"></span><span>Dinner</span>
-</label>              </li>
-              <li>
-                <label for="meal_search_complete_f">
-                  <input type="checkbox" value="late night"  name="meal_search[complete]" id="meal_search_complete_f"/>
-                  <span class="indicator" aria-hidden="true"></span><span>Late Night</span>
-</label>              </li>
-            </ul>
-          </dd>
-        </dl>
-      </dd>
-      <dt class="landmark">Submit</dt>
-      <dd class="submit actions"><input type="submit" name="commit" value="Sort and Filter"/></dd>
+      <!--<dt class="landmark">Submit</dt>-->     
+       <dd class="submit actions"><input type="submit" name="commit" value="Sort and Filter"/></dd>
     </dl>
 
 
