@@ -95,14 +95,8 @@ function display(data) {
   for (meal of Object.keys(data)) {
     if (data[meal].length > 0) {
       $("<ul class='results'>" + meal + "</ul>").insertAfter("a.close");
-      // data[meal].sort(function(a, b) {
-      //   return relevance(b) - relevance(a);
-      // });
       var i = 0;
       for (item of data[meal]) {
-        // if (i >= 5) {
-        //   break;
-        // }
         $("<li>" + item.Name + "</li>").appendTo("ul.results");
         i++;
       }
@@ -133,7 +127,6 @@ function removeGram(str) {
 }
 
 function filter(data, filters) {
-  console.log(filters);
   for (meal of mealKeys) {
     if (!filters.includes(meal) && Object.keys(data).includes(meal)) {
       if (data[meal].length > 0) {
@@ -208,7 +201,6 @@ function objectify(data) {
 
 //converts menu item row from csv into object
 function rowToObj(text, labels) {
-  console.log(text);
   var lists = text.split('"');
   clean(lists);
   // 1st element is simply the nutrient attributes which are ignored by the list section
@@ -265,6 +257,9 @@ function rowToObj(text, labels) {
   var dish = {};
   for (var j = 0; j < labels.length; j++) {
     dish[labels[j]] = item[j];
+  }
+  if (!(/\D/).test(dish.Name)) {
+    return {};
   }
   return dish;
 }
@@ -345,7 +340,6 @@ function translateNutr(arr) {
 }
 
 function onSubmit() {
-    console.log("Ready");
     var filters = [];
     //hardcoded for testing
     nutrition = {calories: 100, fat: 100, cholesterol: 100, sodium: 100, carbohydrates: 100, protein: 100};
@@ -361,7 +355,7 @@ function onSubmit() {
         filenames.push(dc + ".csv");
       }
     }
-    console.log(filenames);
+    
     for (filename of filenames) {
       $.get(filename, function(data) {
         filter(objectify(data), filters);
@@ -371,3 +365,4 @@ function onSubmit() {
       
     }
 }
+
