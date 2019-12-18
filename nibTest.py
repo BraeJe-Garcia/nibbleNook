@@ -1,15 +1,3 @@
-import scraper
-import csv
-
-from flask import Flask, render_template, request, jsonify
-
-app = Flask(__name__)
-
-
-@app.route('/')
-#@app.route('/index.html')
-
-@app.route('/nibTest')
 def scrape_nutrients(csvWriter, nib_scrape,
                      cutoff):  # grabs the nutrient values, cutoff is the point where we stop scraping
     nib_scrape.move_to('data-ingredient-list')
